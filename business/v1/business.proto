@@ -28,7 +28,7 @@ message ReplyReviewRequest {
     string videoInfo = 5 [(validate.rules).string = {min_len: 1, max_len: 1000}];
 }
 
-// 评价回复响应
+// 评价回复响应 - 返回回复的id
 message ReplyReviewReply {
 	int64 id = 1;
 }
