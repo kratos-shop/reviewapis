@@ -57,10 +57,10 @@ func (m *CreateReviewRequest) validate(all bool) error {
 
 	var errors []error
 
-	if val := m.GetUserId(); val <= 0 || val >= 9223372036854775807 {
+	if val := m.GetUserId(); val <= 0 || val >= 9223372036854775806 {
 		err := CreateReviewRequestValidationError{
 			field:  "UserId",
-			reason: "value must be inside range (0, 9223372036854775807)",
+			reason: "value must be inside range (0, 9223372036854775806)",
 		}
 		if !all {
 			return err
@@ -68,10 +68,10 @@ func (m *CreateReviewRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
-	if val := m.GetOrderId(); val <= 0 || val >= 9223372036854775807 {
+	if val := m.GetOrderId(); val <= 0 || val >= 9223372036854775806 {
 		err := CreateReviewRequestValidationError{
 			field:  "OrderId",
-			reason: "value must be inside range (0, 9223372036854775807)",
+			reason: "value must be inside range (0, 9223372036854775806)",
 		}
 		if !all {
 			return err
@@ -145,10 +145,10 @@ func (m *CreateReviewRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
-	if val := m.GetStoreId(); val <= 1 || val >= 9223372036854775807 {
+	if val := m.GetStoreId(); val <= 1 || val >= 9223372036854775806 {
 		err := CreateReviewRequestValidationError{
 			field:  "StoreId",
-			reason: "value must be inside range (1, 9223372036854775807)",
+			reason: "value must be inside range (1, 9223372036854775806)",
 		}
 		if !all {
 			return err
@@ -1459,10 +1459,10 @@ func (m *AppealReviewRequest) validate(all bool) error {
 
 	var errors []error
 
-	if val := m.GetReviewId(); val <= 0 || val >= 9223372036854775807 {
+	if val := m.GetReviewId(); val <= 0 || val >= 9223372036854775806 {
 		err := AppealReviewRequestValidationError{
 			field:  "ReviewId",
-			reason: "value must be inside range (0, 9223372036854775807)",
+			reason: "value must be inside range (0, 9223372036854775806)",
 		}
 		if !all {
 			return err
@@ -1470,10 +1470,10 @@ func (m *AppealReviewRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
-	if val := m.GetStoreId(); val <= 0 || val >= 9223372036854775807 {
+	if val := m.GetStoreId(); val <= 0 || val >= 9223372036854775806 {
 		err := AppealReviewRequestValidationError{
 			field:  "StoreId",
-			reason: "value must be inside range (0, 9223372036854775807)",
+			reason: "value must be inside range (0, 9223372036854775806)",
 		}
 		if !all {
 			return err
