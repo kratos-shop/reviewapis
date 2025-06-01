@@ -1459,10 +1459,10 @@ func (m *AppealReviewRequest) validate(all bool) error {
 
 	var errors []error
 
-	if val := m.GetReviewId(); val <= 0 || val >= 9223372036854775806 {
+	if val := m.GetReviewId(); val <= 0 || val >= 9223372036854775807 {
 		err := AppealReviewRequestValidationError{
 			field:  "ReviewId",
-			reason: "value must be inside range (0, 9223372036854775806)",
+			reason: "value must be inside range (0, 9223372036854775807)",
 		}
 		if !all {
 			return err
@@ -1470,10 +1470,10 @@ func (m *AppealReviewRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
-	if val := m.GetStoreId(); val <= 0 || val >= 9223372036854775806 {
+	if val := m.GetStoreId(); val <= 0 || val >= 9223372036854775807 {
 		err := AppealReviewRequestValidationError{
 			field:  "StoreId",
-			reason: "value must be inside range (0, 9223372036854775806)",
+			reason: "value must be inside range (0, 9223372036854775807)",
 		}
 		if !all {
 			return err
