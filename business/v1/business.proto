@@ -16,13 +16,19 @@ service Business {
             post: "business/v1/review/reply",
             body: "*"
         };
-    }
+    };
+    rpc AppealReview (AppealReviewRequest) returns (AppealReviewReply) {
+        option (google.api.http) = {
+            post: "business/v1/review/appeal",
+            body: "*"
+        };
+    };
 }
 
 // 回复评价请求
 message ReplyReviewRequest {
-    int64 reviewId = 1 [(validate.rules).int64 = {gt: 0, lt: 9223372036854775807}];
-    int64 storeId = 2 [(validate.rules).int64 = {gt: 0, lt: 9223372036854775807}];
+    int64 reviewId = 1 [(validate.rules).int64 = {gt: 0, lt: 9223372036854775806}];
+    int64 storeId = 2 [(validate.rules).int64 = {gt: 0, lt: 9223372036854775806}];
     string content = 3 [(validate.rules).string = {min_len: 1, max_len: 1000}];
     string picInfo = 4 [(validate.rules).string = {min_len: 1, max_len: 1000}];
     string videoInfo = 5 [(validate.rules).string = {min_len: 1, max_len: 1000}];
@@ -31,4 +37,18 @@ message ReplyReviewRequest {
 // 评价回复响应 - 返回回复的id
 message ReplyReviewReply {
 	int64 id = 1;
+}
+
+// 申诉评价请求
+message AppealReviewRequest {
+    int64 reviewId = 1 [(validate.rules).int64 = {gt: 0, lt: 9223372036854775807}];
+    int64 storeId = 2 [(validate.rules).int64 = {gt: 0, lt: 9223372036854775807}];
+    string content = 3 [(validate.rules).string = {min_len: 1, max_len: 1000}];
+    string picInfo = 4 [(validate.rules).string = {min_len: 1, max_len: 1000}];
+    string videoInfo = 5 [(validate.rules).string = {min_len: 1, max_len: 1000}];
+}
+
+// 申诉评价响应
+message AppealReviewReply {
+    int64 id = 1;
 }

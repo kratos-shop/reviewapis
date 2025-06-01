@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v6.30.2
-// source: api/review/v1/review.proto
+// source: review/v1/review.proto
 
 package v1
 
@@ -25,6 +25,7 @@ const (
 	Review_GetReview_FullMethodName    = "/api.review.v1.Review/GetReview"
 	Review_ListReview_FullMethodName   = "/api.review.v1.Review/ListReview"
 	Review_ReplyReview_FullMethodName  = "/api.review.v1.Review/ReplyReview"
+	Review_AppealReview_FullMethodName = "/api.review.v1.Review/AppealReview"
 )
 
 // ReviewClient is the client API for Review service.
@@ -37,6 +38,7 @@ type ReviewClient interface {
 	GetReview(ctx context.Context, in *GetReviewRequest, opts ...grpc.CallOption) (*GetReviewReply, error)
 	ListReview(ctx context.Context, in *ListReviewRequest, opts ...grpc.CallOption) (*ListReviewReply, error)
 	ReplyReview(ctx context.Context, in *ReplyReviewRequest, opts ...grpc.CallOption) (*ReplyReviewResp, error)
+	AppealReview(ctx context.Context, in *AppealReviewRequest, opts ...grpc.CallOption) (*AppealReviewReply, error)
 }
 
 type reviewClient struct {
@@ -107,6 +109,16 @@ func (c *reviewClient) ReplyReview(ctx context.Context, in *ReplyReviewRequest, 
 	return out, nil
 }
 
+func (c *reviewClient) AppealReview(ctx context.Context, in *AppealReviewRequest, opts ...grpc.CallOption) (*AppealReviewReply, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AppealReviewReply)
+	err := c.cc.Invoke(ctx, Review_AppealReview_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ReviewServer is the server API for Review service.
 // All implementations must embed UnimplementedReviewServer
 // for forward compatibility.
@@ -117,6 +129,7 @@ type ReviewServer interface {
 	GetReview(context.Context, *GetReviewRequest) (*GetReviewReply, error)
 	ListReview(context.Context, *ListReviewRequest) (*ListReviewReply, error)
 	ReplyReview(context.Context, *ReplyReviewRequest) (*ReplyReviewResp, error)
+	AppealReview(context.Context, *AppealReviewRequest) (*AppealReviewReply, error)
 	mustEmbedUnimplementedReviewServer()
 }
 
@@ -144,6 +157,9 @@ func (UnimplementedReviewServer) ListReview(context.Context, *ListReviewRequest)
 }
 func (UnimplementedReviewServer) ReplyReview(context.Context, *ReplyReviewRequest) (*ReplyReviewResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReplyReview not implemented")
+}
+func (UnimplementedReviewServer) AppealReview(context.Context, *AppealReviewRequest) (*AppealReviewReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AppealReview not implemented")
 }
 func (UnimplementedReviewServer) mustEmbedUnimplementedReviewServer() {}
 func (UnimplementedReviewServer) testEmbeddedByValue()                {}
@@ -274,6 +290,24 @@ func _Review_ReplyReview_Handler(srv interface{}, ctx context.Context, dec func(
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Review_AppealReview_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AppealReviewRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReviewServer).AppealReview(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Review_AppealReview_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReviewServer).AppealReview(ctx, req.(*AppealReviewRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Review_ServiceDesc is the grpc.ServiceDesc for Review service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -305,7 +339,11 @@ var Review_ServiceDesc = grpc.ServiceDesc{
 			MethodName: "ReplyReview",
 			Handler:    _Review_ReplyReview_Handler,
 		},
+		{
+			MethodName: "AppealReview",
+			Handler:    _Review_AppealReview_Handler,
+		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "api/review/v1/review.proto",
+	Metadata: "review/v1/review.proto",
 }

@@ -26,7 +26,9 @@ service Review {
 			post: "/v1/reply_review"
 			body: "*"
 		};
-	}
+	};
+
+	rpc AppealReview (AppealReviewRequest) returns (AppealReviewReply);
 }
 
 // 创建评价请求
@@ -73,3 +75,17 @@ message GetReviewReply {}
 
 message ListReviewRequest {}
 message ListReviewReply {}
+
+// 申诉评价请求
+message AppealReviewRequest {
+    int64 reviewId = 1 [(validate.rules).int64 = {gt: 0, lt: 9223372036854775807}];
+    int64 storeId = 2 [(validate.rules).int64 = {gt: 0, lt: 9223372036854775807}];
+    string content = 3 [(validate.rules).string = {min_len: 1, max_len: 1000}];
+    string picInfo = 4 [(validate.rules).string = {min_len: 1, max_len: 1000}];
+    string videoInfo = 5 [(validate.rules).string = {min_len: 1, max_len: 1000}];
+}
+
+// 申诉评价响应
+message AppealReviewReply {
+    int64 id = 1;
+}

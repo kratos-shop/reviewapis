@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-http v2.8.4
 // - protoc             v6.30.2
-// source: api/review/v1/review.proto
+// source: review/v1/review.proto
 
 package v1
 
@@ -30,7 +30,7 @@ type ReviewHTTPServer interface {
 func RegisterReviewHTTPServer(s *http.Server, srv ReviewHTTPServer) {
 	r := s.Route("/")
 	r.POST("/v1/review", _Review_CreateReview0_HTTP_Handler(srv))
-	r.POST("/v1/reply_review", _Review_ReplyReview0_HTTP_Handler(srv))
+	r.POST("/v1/reply_review", _Review_ReplyReview1_HTTP_Handler(srv))
 }
 
 func _Review_CreateReview0_HTTP_Handler(srv ReviewHTTPServer) func(ctx http.Context) error {
@@ -55,7 +55,7 @@ func _Review_CreateReview0_HTTP_Handler(srv ReviewHTTPServer) func(ctx http.Cont
 	}
 }
 
-func _Review_ReplyReview0_HTTP_Handler(srv ReviewHTTPServer) func(ctx http.Context) error {
+func _Review_ReplyReview1_HTTP_Handler(srv ReviewHTTPServer) func(ctx http.Context) error {
 	return func(ctx http.Context) error {
 		var in ReplyReviewRequest
 		if err := ctx.Bind(&in); err != nil {
