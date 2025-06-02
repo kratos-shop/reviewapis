@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package api.operation.v1;
+
+import "google/api/annotations.proto";
+import "validate/validate.proto";
+
+option go_package = "review-o/api/operation/v1;v1";
+option java_multiple_files = true;
+option java_package = "api.operation.v1";
+option java_outer_classname = "OperationProtoV1";
+
+service Operation {
+    rpc AppealReview (AppealReviewRequest) returns (AppealReviewReply) {
+        option (google.api.http) = {
+            post: "operation/v1/review/appeal",
+            body: "*"
+        };
+    };
+}
+
+message AppealReviewRequest {
+    int64 appeal_id = 1 [(validate.rules).int64 = {gt: 0, lt: 9223372036854775806}];
+    int64 review_id = 2 [(validate.rules).int64 = {gt: 0, lt: 9223372036854775806}];
+    int64 store_id = 3 [(validate.rules).int64 = {gt: 0, lt: 9223372036854775806}];
+    int64 status = 4 [(validate.rules).int64 = {gt: 0, lt: 50}];
+    string appeal_reason = 5 [(validate.rules).string = {min_len: 1, max_len: 1000}];
+}
+
+message AppealReviewReply {
+    int64 appeal_id = 1 [(validate.rules).int64 = {gt: 0, lt: 9223372036854775806}];
+}
