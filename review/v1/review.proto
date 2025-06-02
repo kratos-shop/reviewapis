@@ -15,11 +15,7 @@ service Review {
 			post: "/v1/review"
 			body: "*"
 		};
-	}
-	rpc UpdateReview (UpdateReviewRequest) returns (UpdateReviewReply);
-	rpc DeleteReview (DeleteReviewRequest) returns (DeleteReviewReply);
-	rpc GetReview (GetReviewRequest) returns (GetReviewReply);
-	rpc ListReview (ListReviewRequest) returns (ListReviewReply);
+	};
 
 	rpc ReplyReview (ReplyReviewRequest) returns (ReplyReviewResp) {
 		option (google.api.http) = {
@@ -27,8 +23,11 @@ service Review {
 			body: "*"
 		};
 	};
-
+	
+    // 商家申诉评价
 	rpc AppealReview (AppealReviewRequest) returns (AppealReviewReply);
+    // 运营申诉评价
+    rpc OperationAppealReview (OperationAppealReviewRequest) returns (OperationAppealReviewReply);
 }
 
 // 创建评价请求
@@ -64,18 +63,6 @@ message ReplyReviewResp {
 	int64 id = 1;
 }
 
-message UpdateReviewRequest {}
-message UpdateReviewReply {}
-
-message DeleteReviewRequest {}
-message DeleteReviewReply {}
-
-message GetReviewRequest {}
-message GetReviewReply {}
-
-message ListReviewRequest {}
-message ListReviewReply {}
-
 // 申诉评价请求
 message AppealReviewRequest {
     int64 reviewId = 1 [(validate.rules).int64 = {gt: 0, lt: 9223372036854775807}];
@@ -87,5 +74,19 @@ message AppealReviewRequest {
 
 // 申诉评价响应
 message AppealReviewReply {
+    int64 id = 1;
+}
+
+// 运营申诉评价请求
+message OperationAppealReviewRequest {
+    int64 appealId = 1 [(validate.rules).int64 = {gt: 0, lt: 9223372036854775807}];
+    int64 reviewId = 2 [(validate.rules).int64 = {gt: 0, lt: 9223372036854775807}];
+    int64 storeId = 3 [(validate.rules).int64 = {gt: 0, lt: 9223372036854775807}];
+    int64 status = 4 [(validate.rules).int64 = {gt: 0, lt: 50}];
+    string appealReason = 5 [(validate.rules).string = {min_len: 1, max_len: 1000}];
+}
+
+// 运营申诉评价响应
+message OperationAppealReviewReply {
     int64 id = 1;
 }

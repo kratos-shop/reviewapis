@@ -84,3 +84,15 @@ func IsReviewReplyExists(err error) bool {
 func ErrorReviewReplyExists(format string, args ...interface{}) *errors.Error {
 	return errors.New(504, ErrorReason_REVIEW_REPLY_EXISTS.String(), fmt.Sprintf(format, args...))
 }
+
+func IsAppealReviewNotFound(err error) bool {
+	if err == nil {
+		return false
+	}
+	e := errors.FromError(err)
+	return e.Reason == ErrorReason_APPEAL_REVIEW_NOT_FOUND.String() && e.Code == 505
+}
+
+func ErrorAppealReviewNotFound(format string, args ...interface{}) *errors.Error {
+	return errors.New(505, ErrorReason_APPEAL_REVIEW_NOT_FOUND.String(), fmt.Sprintf(format, args...))
+}

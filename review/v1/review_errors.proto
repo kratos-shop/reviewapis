@@ -19,4 +19,5 @@ enum ErrorReason {
     REVIEW_NOT_FOUND = 101 [(errors.code) = 502];
     STORE_NOT_MATCH = 102 [(errors.code) = 503];
     REVIEW_REPLY_EXISTS = 103 [(errors.code) = 504];
+    APPEAL_REVIEW_NOT_FOUND = 104 [(errors.code) = 505];
   }

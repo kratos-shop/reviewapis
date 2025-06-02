@@ -627,816 +627,6 @@ var _ interface {
 	ErrorName() string
 } = ReplyReviewRespValidationError{}
 
-// Validate checks the field values on UpdateReviewRequest with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *UpdateReviewRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on UpdateReviewRequest with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// UpdateReviewRequestMultiError, or nil if none found.
-func (m *UpdateReviewRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *UpdateReviewRequest) validate(all bool) error {
-	if m == nil {
-		return nil
-	}
-
-	var errors []error
-
-	if len(errors) > 0 {
-		return UpdateReviewRequestMultiError(errors)
-	}
-
-	return nil
-}
-
-// UpdateReviewRequestMultiError is an error wrapping multiple validation
-// errors returned by UpdateReviewRequest.ValidateAll() if the designated
-// constraints aren't met.
-type UpdateReviewRequestMultiError []error
-
-// Error returns a concatenation of all the error messages it wraps.
-func (m UpdateReviewRequestMultiError) Error() string {
-	msgs := make([]string, 0, len(m))
-	for _, err := range m {
-		msgs = append(msgs, err.Error())
-	}
-	return strings.Join(msgs, "; ")
-}
-
-// AllErrors returns a list of validation violation errors.
-func (m UpdateReviewRequestMultiError) AllErrors() []error { return m }
-
-// UpdateReviewRequestValidationError is the validation error returned by
-// UpdateReviewRequest.Validate if the designated constraints aren't met.
-type UpdateReviewRequestValidationError struct {
-	field  string
-	reason string
-	cause  error
-	key    bool
-}
-
-// Field function returns field value.
-func (e UpdateReviewRequestValidationError) Field() string { return e.field }
-
-// Reason function returns reason value.
-func (e UpdateReviewRequestValidationError) Reason() string { return e.reason }
-
-// Cause function returns cause value.
-func (e UpdateReviewRequestValidationError) Cause() error { return e.cause }
-
-// Key function returns key value.
-func (e UpdateReviewRequestValidationError) Key() bool { return e.key }
-
-// ErrorName returns error name.
-func (e UpdateReviewRequestValidationError) ErrorName() string {
-	return "UpdateReviewRequestValidationError"
-}
-
-// Error satisfies the builtin error interface
-func (e UpdateReviewRequestValidationError) Error() string {
-	cause := ""
-	if e.cause != nil {
-		cause = fmt.Sprintf(" | caused by: %v", e.cause)
-	}
-
-	key := ""
-	if e.key {
-		key = "key for "
-	}
-
-	return fmt.Sprintf(
-		"invalid %sUpdateReviewRequest.%s: %s%s",
-		key,
-		e.field,
-		e.reason,
-		cause)
-}
-
-var _ error = UpdateReviewRequestValidationError{}
-
-var _ interface {
-	Field() string
-	Reason() string
-	Key() bool
-	Cause() error
-	ErrorName() string
-} = UpdateReviewRequestValidationError{}
-
-// Validate checks the field values on UpdateReviewReply with the rules defined
-// in the proto definition for this message. If any rules are violated, the
-// first error encountered is returned, or nil if there are no violations.
-func (m *UpdateReviewReply) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on UpdateReviewReply with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// UpdateReviewReplyMultiError, or nil if none found.
-func (m *UpdateReviewReply) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *UpdateReviewReply) validate(all bool) error {
-	if m == nil {
-		return nil
-	}
-
-	var errors []error
-
-	if len(errors) > 0 {
-		return UpdateReviewReplyMultiError(errors)
-	}
-
-	return nil
-}
-
-// UpdateReviewReplyMultiError is an error wrapping multiple validation errors
-// returned by UpdateReviewReply.ValidateAll() if the designated constraints
-// aren't met.
-type UpdateReviewReplyMultiError []error
-
-// Error returns a concatenation of all the error messages it wraps.
-func (m UpdateReviewReplyMultiError) Error() string {
-	msgs := make([]string, 0, len(m))
-	for _, err := range m {
-		msgs = append(msgs, err.Error())
-	}
-	return strings.Join(msgs, "; ")
-}
-
-// AllErrors returns a list of validation violation errors.
-func (m UpdateReviewReplyMultiError) AllErrors() []error { return m }
-
-// UpdateReviewReplyValidationError is the validation error returned by
-// UpdateReviewReply.Validate if the designated constraints aren't met.
-type UpdateReviewReplyValidationError struct {
-	field  string
-	reason string
-	cause  error
-	key    bool
-}
-
-// Field function returns field value.
-func (e UpdateReviewReplyValidationError) Field() string { return e.field }
-
-// Reason function returns reason value.
-func (e UpdateReviewReplyValidationError) Reason() string { return e.reason }
-
-// Cause function returns cause value.
-func (e UpdateReviewReplyValidationError) Cause() error { return e.cause }
-
-// Key function returns key value.
-func (e UpdateReviewReplyValidationError) Key() bool { return e.key }
-
-// ErrorName returns error name.
-func (e UpdateReviewReplyValidationError) ErrorName() string {
-	return "UpdateReviewReplyValidationError"
-}
-
-// Error satisfies the builtin error interface
-func (e UpdateReviewReplyValidationError) Error() string {
-	cause := ""
-	if e.cause != nil {
-		cause = fmt.Sprintf(" | caused by: %v", e.cause)
-	}
-
-	key := ""
-	if e.key {
-		key = "key for "
-	}
-
-	return fmt.Sprintf(
-		"invalid %sUpdateReviewReply.%s: %s%s",
-		key,
-		e.field,
-		e.reason,
-		cause)
-}
-
-var _ error = UpdateReviewReplyValidationError{}
-
-var _ interface {
-	Field() string
-	Reason() string
-	Key() bool
-	Cause() error
-	ErrorName() string
-} = UpdateReviewReplyValidationError{}
-
-// Validate checks the field values on DeleteReviewRequest with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *DeleteReviewRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on DeleteReviewRequest with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// DeleteReviewRequestMultiError, or nil if none found.
-func (m *DeleteReviewRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *DeleteReviewRequest) validate(all bool) error {
-	if m == nil {
-		return nil
-	}
-
-	var errors []error
-
-	if len(errors) > 0 {
-		return DeleteReviewRequestMultiError(errors)
-	}
-
-	return nil
-}
-
-// DeleteReviewRequestMultiError is an error wrapping multiple validation
-// errors returned by DeleteReviewRequest.ValidateAll() if the designated
-// constraints aren't met.
-type DeleteReviewRequestMultiError []error
-
-// Error returns a concatenation of all the error messages it wraps.
-func (m DeleteReviewRequestMultiError) Error() string {
-	msgs := make([]string, 0, len(m))
-	for _, err := range m {
-		msgs = append(msgs, err.Error())
-	}
-	return strings.Join(msgs, "; ")
-}
-
-// AllErrors returns a list of validation violation errors.
-func (m DeleteReviewRequestMultiError) AllErrors() []error { return m }
-
-// DeleteReviewRequestValidationError is the validation error returned by
-// DeleteReviewRequest.Validate if the designated constraints aren't met.
-type DeleteReviewRequestValidationError struct {
-	field  string
-	reason string
-	cause  error
-	key    bool
-}
-
-// Field function returns field value.
-func (e DeleteReviewRequestValidationError) Field() string { return e.field }
-
-// Reason function returns reason value.
-func (e DeleteReviewRequestValidationError) Reason() string { return e.reason }
-
-// Cause function returns cause value.
-func (e DeleteReviewRequestValidationError) Cause() error { return e.cause }
-
-// Key function returns key value.
-func (e DeleteReviewRequestValidationError) Key() bool { return e.key }
-
-// ErrorName returns error name.
-func (e DeleteReviewRequestValidationError) ErrorName() string {
-	return "DeleteReviewRequestValidationError"
-}
-
-// Error satisfies the builtin error interface
-func (e DeleteReviewRequestValidationError) Error() string {
-	cause := ""
-	if e.cause != nil {
-		cause = fmt.Sprintf(" | caused by: %v", e.cause)
-	}
-
-	key := ""
-	if e.key {
-		key = "key for "
-	}
-
-	return fmt.Sprintf(
-		"invalid %sDeleteReviewRequest.%s: %s%s",
-		key,
-		e.field,
-		e.reason,
-		cause)
-}
-
-var _ error = DeleteReviewRequestValidationError{}
-
-var _ interface {
-	Field() string
-	Reason() string
-	Key() bool
-	Cause() error
-	ErrorName() string
-} = DeleteReviewRequestValidationError{}
-
-// Validate checks the field values on DeleteReviewReply with the rules defined
-// in the proto definition for this message. If any rules are violated, the
-// first error encountered is returned, or nil if there are no violations.
-func (m *DeleteReviewReply) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on DeleteReviewReply with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// DeleteReviewReplyMultiError, or nil if none found.
-func (m *DeleteReviewReply) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *DeleteReviewReply) validate(all bool) error {
-	if m == nil {
-		return nil
-	}
-
-	var errors []error
-
-	if len(errors) > 0 {
-		return DeleteReviewReplyMultiError(errors)
-	}
-
-	return nil
-}
-
-// DeleteReviewReplyMultiError is an error wrapping multiple validation errors
-// returned by DeleteReviewReply.ValidateAll() if the designated constraints
-// aren't met.
-type DeleteReviewReplyMultiError []error
-
-// Error returns a concatenation of all the error messages it wraps.
-func (m DeleteReviewReplyMultiError) Error() string {
-	msgs := make([]string, 0, len(m))
-	for _, err := range m {
-		msgs = append(msgs, err.Error())
-	}
-	return strings.Join(msgs, "; ")
-}
-
-// AllErrors returns a list of validation violation errors.
-func (m DeleteReviewReplyMultiError) AllErrors() []error { return m }
-
-// DeleteReviewReplyValidationError is the validation error returned by
-// DeleteReviewReply.Validate if the designated constraints aren't met.
-type DeleteReviewReplyValidationError struct {
-	field  string
-	reason string
-	cause  error
-	key    bool
-}
-
-// Field function returns field value.
-func (e DeleteReviewReplyValidationError) Field() string { return e.field }
-
-// Reason function returns reason value.
-func (e DeleteReviewReplyValidationError) Reason() string { return e.reason }
-
-// Cause function returns cause value.
-func (e DeleteReviewReplyValidationError) Cause() error { return e.cause }
-
-// Key function returns key value.
-func (e DeleteReviewReplyValidationError) Key() bool { return e.key }
-
-// ErrorName returns error name.
-func (e DeleteReviewReplyValidationError) ErrorName() string {
-	return "DeleteReviewReplyValidationError"
-}
-
-// Error satisfies the builtin error interface
-func (e DeleteReviewReplyValidationError) Error() string {
-	cause := ""
-	if e.cause != nil {
-		cause = fmt.Sprintf(" | caused by: %v", e.cause)
-	}
-
-	key := ""
-	if e.key {
-		key = "key for "
-	}
-
-	return fmt.Sprintf(
-		"invalid %sDeleteReviewReply.%s: %s%s",
-		key,
-		e.field,
-		e.reason,
-		cause)
-}
-
-var _ error = DeleteReviewReplyValidationError{}
-
-var _ interface {
-	Field() string
-	Reason() string
-	Key() bool
-	Cause() error
-	ErrorName() string
-} = DeleteReviewReplyValidationError{}
-
-// Validate checks the field values on GetReviewRequest with the rules defined
-// in the proto definition for this message. If any rules are violated, the
-// first error encountered is returned, or nil if there are no violations.
-func (m *GetReviewRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on GetReviewRequest with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// GetReviewRequestMultiError, or nil if none found.
-func (m *GetReviewRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *GetReviewRequest) validate(all bool) error {
-	if m == nil {
-		return nil
-	}
-
-	var errors []error
-
-	if len(errors) > 0 {
-		return GetReviewRequestMultiError(errors)
-	}
-
-	return nil
-}
-
-// GetReviewRequestMultiError is an error wrapping multiple validation errors
-// returned by GetReviewRequest.ValidateAll() if the designated constraints
-// aren't met.
-type GetReviewRequestMultiError []error
-
-// Error returns a concatenation of all the error messages it wraps.
-func (m GetReviewRequestMultiError) Error() string {
-	msgs := make([]string, 0, len(m))
-	for _, err := range m {
-		msgs = append(msgs, err.Error())
-	}
-	return strings.Join(msgs, "; ")
-}
-
-// AllErrors returns a list of validation violation errors.
-func (m GetReviewRequestMultiError) AllErrors() []error { return m }
-
-// GetReviewRequestValidationError is the validation error returned by
-// GetReviewRequest.Validate if the designated constraints aren't met.
-type GetReviewRequestValidationError struct {
-	field  string
-	reason string
-	cause  error
-	key    bool
-}
-
-// Field function returns field value.
-func (e GetReviewRequestValidationError) Field() string { return e.field }
-
-// Reason function returns reason value.
-func (e GetReviewRequestValidationError) Reason() string { return e.reason }
-
-// Cause function returns cause value.
-func (e GetReviewRequestValidationError) Cause() error { return e.cause }
-
-// Key function returns key value.
-func (e GetReviewRequestValidationError) Key() bool { return e.key }
-
-// ErrorName returns error name.
-func (e GetReviewRequestValidationError) ErrorName() string { return "GetReviewRequestValidationError" }
-
-// Error satisfies the builtin error interface
-func (e GetReviewRequestValidationError) Error() string {
-	cause := ""
-	if e.cause != nil {
-		cause = fmt.Sprintf(" | caused by: %v", e.cause)
-	}
-
-	key := ""
-	if e.key {
-		key = "key for "
-	}
-
-	return fmt.Sprintf(
-		"invalid %sGetReviewRequest.%s: %s%s",
-		key,
-		e.field,
-		e.reason,
-		cause)
-}
-
-var _ error = GetReviewRequestValidationError{}
-
-var _ interface {
-	Field() string
-	Reason() string
-	Key() bool
-	Cause() error
-	ErrorName() string
-} = GetReviewRequestValidationError{}
-
-// Validate checks the field values on GetReviewReply with the rules defined in
-// the proto definition for this message. If any rules are violated, the first
-// error encountered is returned, or nil if there are no violations.
-func (m *GetReviewReply) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on GetReviewReply with the rules defined
-// in the proto definition for this message. If any rules are violated, the
-// result is a list of violation errors wrapped in GetReviewReplyMultiError,
-// or nil if none found.
-func (m *GetReviewReply) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *GetReviewReply) validate(all bool) error {
-	if m == nil {
-		return nil
-	}
-
-	var errors []error
-
-	if len(errors) > 0 {
-		return GetReviewReplyMultiError(errors)
-	}
-
-	return nil
-}
-
-// GetReviewReplyMultiError is an error wrapping multiple validation errors
-// returned by GetReviewReply.ValidateAll() if the designated constraints
-// aren't met.
-type GetReviewReplyMultiError []error
-
-// Error returns a concatenation of all the error messages it wraps.
-func (m GetReviewReplyMultiError) Error() string {
-	msgs := make([]string, 0, len(m))
-	for _, err := range m {
-		msgs = append(msgs, err.Error())
-	}
-	return strings.Join(msgs, "; ")
-}
-
-// AllErrors returns a list of validation violation errors.
-func (m GetReviewReplyMultiError) AllErrors() []error { return m }
-
-// GetReviewReplyValidationError is the validation error returned by
-// GetReviewReply.Validate if the designated constraints aren't met.
-type GetReviewReplyValidationError struct {
-	field  string
-	reason string
-	cause  error
-	key    bool
-}
-
-// Field function returns field value.
-func (e GetReviewReplyValidationError) Field() string { return e.field }
-
-// Reason function returns reason value.
-func (e GetReviewReplyValidationError) Reason() string { return e.reason }
-
-// Cause function returns cause value.
-func (e GetReviewReplyValidationError) Cause() error { return e.cause }
-
-// Key function returns key value.
-func (e GetReviewReplyValidationError) Key() bool { return e.key }
-
-// ErrorName returns error name.
-func (e GetReviewReplyValidationError) ErrorName() string { return "GetReviewReplyValidationError" }
-
-// Error satisfies the builtin error interface
-func (e GetReviewReplyValidationError) Error() string {
-	cause := ""
-	if e.cause != nil {
-		cause = fmt.Sprintf(" | caused by: %v", e.cause)
-	}
-
-	key := ""
-	if e.key {
-		key = "key for "
-	}
-
-	return fmt.Sprintf(
-		"invalid %sGetReviewReply.%s: %s%s",
-		key,
-		e.field,
-		e.reason,
-		cause)
-}
-
-var _ error = GetReviewReplyValidationError{}
-
-var _ interface {
-	Field() string
-	Reason() string
-	Key() bool
-	Cause() error
-	ErrorName() string
-} = GetReviewReplyValidationError{}
-
-// Validate checks the field values on ListReviewRequest with the rules defined
-// in the proto definition for this message. If any rules are violated, the
-// first error encountered is returned, or nil if there are no violations.
-func (m *ListReviewRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on ListReviewRequest with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// ListReviewRequestMultiError, or nil if none found.
-func (m *ListReviewRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *ListReviewRequest) validate(all bool) error {
-	if m == nil {
-		return nil
-	}
-
-	var errors []error
-
-	if len(errors) > 0 {
-		return ListReviewRequestMultiError(errors)
-	}
-
-	return nil
-}
-
-// ListReviewRequestMultiError is an error wrapping multiple validation errors
-// returned by ListReviewRequest.ValidateAll() if the designated constraints
-// aren't met.
-type ListReviewRequestMultiError []error
-
-// Error returns a concatenation of all the error messages it wraps.
-func (m ListReviewRequestMultiError) Error() string {
-	msgs := make([]string, 0, len(m))
-	for _, err := range m {
-		msgs = append(msgs, err.Error())
-	}
-	return strings.Join(msgs, "; ")
-}
-
-// AllErrors returns a list of validation violation errors.
-func (m ListReviewRequestMultiError) AllErrors() []error { return m }
-
-// ListReviewRequestValidationError is the validation error returned by
-// ListReviewRequest.Validate if the designated constraints aren't met.
-type ListReviewRequestValidationError struct {
-	field  string
-	reason string
-	cause  error
-	key    bool
-}
-
-// Field function returns field value.
-func (e ListReviewRequestValidationError) Field() string { return e.field }
-
-// Reason function returns reason value.
-func (e ListReviewRequestValidationError) Reason() string { return e.reason }
-
-// Cause function returns cause value.
-func (e ListReviewRequestValidationError) Cause() error { return e.cause }
-
-// Key function returns key value.
-func (e ListReviewRequestValidationError) Key() bool { return e.key }
-
-// ErrorName returns error name.
-func (e ListReviewRequestValidationError) ErrorName() string {
-	return "ListReviewRequestValidationError"
-}
-
-// Error satisfies the builtin error interface
-func (e ListReviewRequestValidationError) Error() string {
-	cause := ""
-	if e.cause != nil {
-		cause = fmt.Sprintf(" | caused by: %v", e.cause)
-	}
-
-	key := ""
-	if e.key {
-		key = "key for "
-	}
-
-	return fmt.Sprintf(
-		"invalid %sListReviewRequest.%s: %s%s",
-		key,
-		e.field,
-		e.reason,
-		cause)
-}
-
-var _ error = ListReviewRequestValidationError{}
-
-var _ interface {
-	Field() string
-	Reason() string
-	Key() bool
-	Cause() error
-	ErrorName() string
-} = ListReviewRequestValidationError{}
-
-// Validate checks the field values on ListReviewReply with the rules defined
-// in the proto definition for this message. If any rules are violated, the
-// first error encountered is returned, or nil if there are no violations.
-func (m *ListReviewReply) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on ListReviewReply with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// ListReviewReplyMultiError, or nil if none found.
-func (m *ListReviewReply) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *ListReviewReply) validate(all bool) error {
-	if m == nil {
-		return nil
-	}
-
-	var errors []error
-
-	if len(errors) > 0 {
-		return ListReviewReplyMultiError(errors)
-	}
-
-	return nil
-}
-
-// ListReviewReplyMultiError is an error wrapping multiple validation errors
-// returned by ListReviewReply.ValidateAll() if the designated constraints
-// aren't met.
-type ListReviewReplyMultiError []error
-
-// Error returns a concatenation of all the error messages it wraps.
-func (m ListReviewReplyMultiError) Error() string {
-	msgs := make([]string, 0, len(m))
-	for _, err := range m {
-		msgs = append(msgs, err.Error())
-	}
-	return strings.Join(msgs, "; ")
-}
-
-// AllErrors returns a list of validation violation errors.
-func (m ListReviewReplyMultiError) AllErrors() []error { return m }
-
-// ListReviewReplyValidationError is the validation error returned by
-// ListReviewReply.Validate if the designated constraints aren't met.
-type ListReviewReplyValidationError struct {
-	field  string
-	reason string
-	cause  error
-	key    bool
-}
-
-// Field function returns field value.
-func (e ListReviewReplyValidationError) Field() string { return e.field }
-
-// Reason function returns reason value.
-func (e ListReviewReplyValidationError) Reason() string { return e.reason }
-
-// Cause function returns cause value.
-func (e ListReviewReplyValidationError) Cause() error { return e.cause }
-
-// Key function returns key value.
-func (e ListReviewReplyValidationError) Key() bool { return e.key }
-
-// ErrorName returns error name.
-func (e ListReviewReplyValidationError) ErrorName() string { return "ListReviewReplyValidationError" }
-
-// Error satisfies the builtin error interface
-func (e ListReviewReplyValidationError) Error() string {
-	cause := ""
-	if e.cause != nil {
-		cause = fmt.Sprintf(" | caused by: %v", e.cause)
-	}
-
-	key := ""
-	if e.key {
-		key = "key for "
-	}
-
-	return fmt.Sprintf(
-		"invalid %sListReviewReply.%s: %s%s",
-		key,
-		e.field,
-		e.reason,
-		cause)
-}
-
-var _ error = ListReviewReplyValidationError{}
-
-var _ interface {
-	Field() string
-	Reason() string
-	Key() bool
-	Cause() error
-	ErrorName() string
-} = ListReviewReplyValidationError{}
-
 // Validate checks the field values on AppealReviewRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
@@ -1697,3 +887,265 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = AppealReviewReplyValidationError{}
+
+// Validate checks the field values on OperationAppealReviewRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *OperationAppealReviewRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on OperationAppealReviewRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// OperationAppealReviewRequestMultiError, or nil if none found.
+func (m *OperationAppealReviewRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *OperationAppealReviewRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if val := m.GetAppealId(); val <= 0 || val >= 9223372036854775807 {
+		err := OperationAppealReviewRequestValidationError{
+			field:  "AppealId",
+			reason: "value must be inside range (0, 9223372036854775807)",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if val := m.GetReviewId(); val <= 0 || val >= 9223372036854775807 {
+		err := OperationAppealReviewRequestValidationError{
+			field:  "ReviewId",
+			reason: "value must be inside range (0, 9223372036854775807)",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if val := m.GetStoreId(); val <= 0 || val >= 9223372036854775807 {
+		err := OperationAppealReviewRequestValidationError{
+			field:  "StoreId",
+			reason: "value must be inside range (0, 9223372036854775807)",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if val := m.GetStatus(); val <= 0 || val >= 50 {
+		err := OperationAppealReviewRequestValidationError{
+			field:  "Status",
+			reason: "value must be inside range (0, 50)",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if l := utf8.RuneCountInString(m.GetAppealReason()); l < 1 || l > 1000 {
+		err := OperationAppealReviewRequestValidationError{
+			field:  "AppealReason",
+			reason: "value length must be between 1 and 1000 runes, inclusive",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return OperationAppealReviewRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// OperationAppealReviewRequestMultiError is an error wrapping multiple
+// validation errors returned by OperationAppealReviewRequest.ValidateAll() if
+// the designated constraints aren't met.
+type OperationAppealReviewRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m OperationAppealReviewRequestMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m OperationAppealReviewRequestMultiError) AllErrors() []error { return m }
+
+// OperationAppealReviewRequestValidationError is the validation error returned
+// by OperationAppealReviewRequest.Validate if the designated constraints
+// aren't met.
+type OperationAppealReviewRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e OperationAppealReviewRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e OperationAppealReviewRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e OperationAppealReviewRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e OperationAppealReviewRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e OperationAppealReviewRequestValidationError) ErrorName() string {
+	return "OperationAppealReviewRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e OperationAppealReviewRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sOperationAppealReviewRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = OperationAppealReviewRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = OperationAppealReviewRequestValidationError{}
+
+// Validate checks the field values on OperationAppealReviewReply with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *OperationAppealReviewReply) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on OperationAppealReviewReply with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// OperationAppealReviewReplyMultiError, or nil if none found.
+func (m *OperationAppealReviewReply) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *OperationAppealReviewReply) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Id
+
+	if len(errors) > 0 {
+		return OperationAppealReviewReplyMultiError(errors)
+	}
+
+	return nil
+}
+
+// OperationAppealReviewReplyMultiError is an error wrapping multiple
+// validation errors returned by OperationAppealReviewReply.ValidateAll() if
+// the designated constraints aren't met.
+type OperationAppealReviewReplyMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m OperationAppealReviewReplyMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m OperationAppealReviewReplyMultiError) AllErrors() []error { return m }
+
+// OperationAppealReviewReplyValidationError is the validation error returned
+// by OperationAppealReviewReply.Validate if the designated constraints aren't met.
+type OperationAppealReviewReplyValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e OperationAppealReviewReplyValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e OperationAppealReviewReplyValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e OperationAppealReviewReplyValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e OperationAppealReviewReplyValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e OperationAppealReviewReplyValidationError) ErrorName() string {
+	return "OperationAppealReviewReplyValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e OperationAppealReviewReplyValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sOperationAppealReviewReply.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = OperationAppealReviewReplyValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = OperationAppealReviewReplyValidationError{}
